@@ -19,12 +19,12 @@ export default {
     methods: {
     },
     mounted() {
-        this.radius = this.color ? this.color : 'skyblue'
-        this.linecolor = this.size ? this.size : '16px'
+        this.linecolor = this.color ? this.color : 'skyblue'
+        this.radius = this.size ? this.size : '16px'
         let time = this.cycle ? this.cycle : '0.5s'
 
-        this.$refs.root.style.setProperty('--color', this.radius)
-        this.$refs.root.style.setProperty('--size', this.linecolor)
+        this.$refs.root.style.setProperty('--color', this.linecolor)
+        this.$refs.root.style.setProperty('--size', this.radius)
         document.querySelector('.loading').style.animationDuration = time
     },
 }

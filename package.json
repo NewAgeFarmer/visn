@@ -1,12 +1,16 @@
 {
   "name": "visn",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "author": "Ethan",
-  "description": "专门给自己玩的Vue小组件仓库",
+  "description": "A small funny vue-component lib for myself~",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name visn --dest lib packages/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewAgeFarmer/visn.git"
   },
   "dependencies": {
     "core-js": "^3.6.5",

@@ -19,19 +19,16 @@ export default {
     },
     methods: {
     },
-//   props: {
-//     type: String,
-//   }
 }
 </script>
 
 <style scoped>
 .root {
-    --width: 40px;
+    --width: 72px;
     --height: 32px;
     --fontSize: 16px;
     --bgColor: rgb(97, 97, 185);
-    --hoverColor: rgb(161, 161, 216);
+    --hoverColor: rgb(97, 97, 185);
 }
 .btn {
     min-width: 20px;
@@ -43,8 +40,9 @@ export default {
     background:  var(--bgColor);
     color: #fff;
     border-radius: calc(var(--height) * 0.25);
-    /* display: flex; */
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: var(--height);
     cursor: pointer;
     font-size: var(--fontSize);
