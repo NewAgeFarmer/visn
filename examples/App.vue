@@ -1,6 +1,8 @@
 <template>
     <div>
-        <vs-nav></vs-nav>
+        <vs-search></vs-search>
+        <!-- <vs-stepper></vs-stepper> -->
+        <!-- <vs-nav></vs-nav> -->
         <!-- <vs-toast></vs-toast> -->
         <!-- <vs-button>
             <vs-loading :size="'16px'"></vs-loading>

@@ -4,6 +4,8 @@ import VsSwitch from './vs-switch'
 import VsLoading from './vs-loading'
 import VsToast from './vs-toast'
 import VsNav from './vs-nav'
+import VsStepper from './vs-stepper'
+import VsSearch from './vs-search'
 
 // 组件列表
 const components = [
@@ -12,6 +14,8 @@ const components = [
     VsLoading,
     VsToast,
     VsNav,
+    VsStepper,
+    VsSearch,
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，那么所有的组件都会被注册
@@ -36,4 +40,6 @@ export default {
   VsLoading,
   VsToast,
   VsNav,
+  VsStepper,
+  VsSearch,
 }
