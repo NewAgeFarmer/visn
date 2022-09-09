@@ -1,6 +1,11 @@
 <template>
     <div>
-        <vs-search></vs-search>
+        <vs-swipe-cell></vs-swipe-cell>
+
+        <!-- <vs-dropdown-menu></vs-dropdown-menu> -->
+        <!-- <vs-dropdown-item></vs-dropdown-item> -->
+
+        <!-- <vs-search></vs-search> -->
         <!-- <vs-stepper></vs-stepper> -->
         <!-- <vs-nav></vs-nav> -->
         <!-- <vs-toast></vs-toast> -->
