@@ -6,6 +6,10 @@ import VsToast from './vs-toast'
 import VsNav from './vs-nav'
 import VsStepper from './vs-stepper'
 import VsSearch from './vs-search'
+import VsSwipeCell from './vs-swipe-cell'
+
+import VsDropdownMenu from './vs-dropdown-menu'
+import VsDropdownItem from './vs-dropdown-item'
 
 // 组件列表
 const components = [
@@ -16,6 +20,10 @@ const components = [
     VsNav,
     VsStepper,
     VsSearch,
+    VsSwipeCell,
+
+    VsDropdownMenu,
+    VsDropdownItem,
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，那么所有的组件都会被注册
@@ -42,4 +50,8 @@ export default {
   VsNav,
   VsStepper,
   VsSearch,
+  VsSwipeCell,
+
+  VsDropdownMenu,
+  VsDropdownItem,
 }
