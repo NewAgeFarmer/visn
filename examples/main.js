@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+// import './assets/style/iconfont.css'
+// require('./assets/style/iconfont.css')
 
 Vue.config.productionTip = false
+
+import './assets/style/iconfont.css'
 
 // 导入组件库
 import visn from '../packages'

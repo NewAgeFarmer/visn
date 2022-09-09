@@ -8,6 +8,9 @@ import VsStepper from './vs-stepper'
 import VsSearch from './vs-search'
 import VsSwipeCell from './vs-swipe-cell'
 
+import VsCheckbox from './vs-checkbox'
+import VsCheckboxGroup from './vs-checkbox-group'
+
 import VsDropdownMenu from './vs-dropdown-menu'
 import VsDropdownItem from './vs-dropdown-item'
 
@@ -21,6 +24,9 @@ const components = [
     VsStepper,
     VsSearch,
     VsSwipeCell,
+
+    VsCheckbox,
+    VsCheckboxGroup,
 
     VsDropdownMenu,
     VsDropdownItem,
@@ -51,6 +57,9 @@ export default {
   VsStepper,
   VsSearch,
   VsSwipeCell,
+
+  VsCheckbox,
+  VsCheckboxGroup,
 
   VsDropdownMenu,
   VsDropdownItem,

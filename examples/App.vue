@@ -1,6 +1,12 @@
 <template>
     <div>
-        <vs-swipe-cell></vs-swipe-cell>
+        <vs-checkbox-group type="tick">
+            <vs-checkbox type="cross">AAAA</vs-checkbox>
+            <vs-checkbox type="tick">BBB</vs-checkbox>
+            <vs-checkbox type="cross">CC</vs-checkbox>
+            <vs-checkbox type="tick">D</vs-checkbox>
+        </vs-checkbox-group>
+        <!-- <vs-swipe-cell></vs-swipe-cell> -->
 
         <!-- <vs-dropdown-menu></vs-dropdown-menu> -->
         <!-- <vs-dropdown-item></vs-dropdown-item> -->
@@ -40,4 +46,5 @@ export default {
 </script>
 
 <style>
+    
 </style>
