@@ -1,6 +1,6 @@
 {
   "name": "visn",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "author": "Ethan",
   "description": "A small funny vue-component lib for myself~",
