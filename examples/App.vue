@@ -1,11 +1,12 @@
 <template>
     <div>
-        <vs-checkbox-group type="tick">
-            <vs-checkbox type="cross">AAAA</vs-checkbox>
-            <vs-checkbox type="tick">BBB</vs-checkbox>
-            <vs-checkbox type="cross">CC</vs-checkbox>
-            <vs-checkbox type="tick">D</vs-checkbox>
+        <vs-checkbox-group type="cross" shape="circle" direction="horizontal">
+            <vs-checkbox>item0</vs-checkbox>
+            <vs-checkbox>item1</vs-checkbox>
+            <vs-checkbox>item2</vs-checkbox>
+            <vs-checkbox>item3</vs-checkbox>
         </vs-checkbox-group>
+
         <!-- <vs-swipe-cell></vs-swipe-cell> -->
 
         <!-- <vs-dropdown-menu></vs-dropdown-menu> -->
@@ -41,6 +42,11 @@ export default {
   components: {
   },
   methods: {
+
+  },
+  created() {
+  },
+  mounted() {
   },
 }
 </script>
