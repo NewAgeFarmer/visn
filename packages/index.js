@@ -7,6 +7,9 @@ import VsNav from './vs-nav'
 import VsStepper from './vs-stepper'
 import VsSearch from './vs-search'
 import VsSwipeCell from './vs-swipe-cell'
+import VsIcon from './vs-icon'
+import VsDragbox from './vs-dragbox'
+import VsDivider from './vs-divider'
 
 import VsCheckbox from './vs-checkbox'
 import VsCheckboxGroup from './vs-checkbox-group'
@@ -24,6 +27,9 @@ const components = [
     VsStepper,
     VsSearch,
     VsSwipeCell,
+    VsIcon,
+    VsDragbox,
+    VsDivider,
 
     VsCheckbox,
     VsCheckboxGroup,
@@ -57,6 +63,9 @@ export default {
   VsStepper,
   VsSearch,
   VsSwipeCell,
+  VsIcon,
+  VsDragbox,
+  VsDivider,
 
   VsCheckbox,
   VsCheckboxGroup,

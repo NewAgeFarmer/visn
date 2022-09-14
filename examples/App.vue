@@ -1,11 +1,21 @@
 <template>
     <div>
-        <vs-checkbox-group type="cross" shape="circle" direction="horizontal">
+        <vs-divider dashed width="4px" font-size="40px" color="darkred"></vs-divider>
+        
+        <!-- <div class="progress">
+            <div class="progress-bar"></div>
+            <vs-dragbox ref="dragbox" shape="circle" maxX='200' direction="x" disabled>
+                <vs-icon icon='上传'></vs-icon>
+            </vs-dragbox>
+        </div> -->
+        <!-- <vs-icon icon='上传'></vs-icon> -->
+
+        <!-- <vs-checkbox-group type="tick" shape="circle" direction="horizontal" >
             <vs-checkbox>item0</vs-checkbox>
             <vs-checkbox>item1</vs-checkbox>
             <vs-checkbox>item2</vs-checkbox>
             <vs-checkbox>item3</vs-checkbox>
-        </vs-checkbox-group>
+        </vs-checkbox-group> -->
 
         <!-- <vs-swipe-cell></vs-swipe-cell> -->
 
@@ -40,6 +50,7 @@ export default {
     }
   },
   components: {
+
   },
   methods: {
 
@@ -47,10 +58,30 @@ export default {
   created() {
   },
   mounted() {
+    let dragbox = this.$refs.dragbox
+    console.log(dragbox)
+    // console.log(window.getComputedStyle(dragbox))
   },
 }
 </script>
 
 <style>
-    
+    input {
+        vertical-align: top;
+    }
+    .progress {
+        width: 600px;
+        height: 80px;
+        background-color: green;
+        position: relative;
+    }
+    .progress-bar {
+        width: inherit;
+        height: 20px;
+        background-color: blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 </style>

@@ -5,7 +5,7 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-import './assets/style/iconfont.css'
+import './assets/iconfont/iconfont.css'
 
 // 导入组件库
 import visn from '../packages'
