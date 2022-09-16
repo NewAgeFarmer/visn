@@ -137,6 +137,7 @@ export default {
 
 
 <style scoped>
+@import url('../../../examples/assets/iconfont/iconfont.css');
 .vs-checkbox {
     --checked-type: '\e6dc';
     --checked-background: #1989FA;

@@ -7,6 +7,7 @@
  const UglifyJsPlugin = require("uglifyjs-webpack-plugin")    //引入插件
 
 module.exports = {
+    // publicPath: './',
     lintOnSave: false,
     pages: {
       index: {

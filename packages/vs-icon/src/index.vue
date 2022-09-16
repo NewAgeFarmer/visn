@@ -10,6 +10,8 @@
 
 <script>
 import iconfont from '../../../examples/assets/iconfont/iconfont.json'
+import '../../../examples/assets/iconfont/iconfont.css'
+
 export default {
     name: 'VsIcon',
     props: ['size', 'color', 'icon'],
