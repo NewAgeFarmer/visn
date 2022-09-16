@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vs-divider dashed width="4px" font-size="40px" color="darkred"></vs-divider>
+        <!-- <vs-divider dashed width="4px" font-size="40px" color="darkred"></vs-divider> -->
         
         <!-- <div class="progress">
             <div class="progress-bar"></div>
@@ -10,12 +10,9 @@
         </div> -->
         <!-- <vs-icon icon='上传'></vs-icon> -->
 
-        <!-- <vs-checkbox-group type="tick" shape="circle" direction="horizontal" >
-            <vs-checkbox>item0</vs-checkbox>
-            <vs-checkbox>item1</vs-checkbox>
-            <vs-checkbox>item2</vs-checkbox>
-            <vs-checkbox>item3</vs-checkbox>
-        </vs-checkbox-group> -->
+        <vs-checkbox-group type="tick" shape="round" direction="horizontal" :checked-list="checkedList">
+            <vs-checkbox v-for="item in checkedList" :key="item.id" :name="item.name">{{item.name}}</vs-checkbox>
+        </vs-checkbox-group>
 
         <!-- <vs-swipe-cell></vs-swipe-cell> -->
 
@@ -38,7 +35,18 @@ export default {
   name: 'App',
   data() {
     return {
-        list: [{title:'首页'}, {title:'设置'}, {title:'商城'}, {title:'设置'}, {title:'商城'}, {title:'设置'}, {title:'商城'}],
+        list: [
+            {title:'首页', id:1}, {title:'设置', id:2}, {title:'商城', id:3}, {title:'我的', id:4}
+        ],
+        checkedList: [{
+            name: 'a', checked: true,
+        },{
+            name: 'b', checked: false,
+        },{
+            name: 'c', checked: false,
+        },{
+            name: 'd', checked: true,
+        }],
         active: {
             color: 'red',
             bgcolor: 'blue',
@@ -58,8 +66,8 @@ export default {
   created() {
   },
   mounted() {
-    let dragbox = this.$refs.dragbox
-    console.log(dragbox)
+    // let dragbox = this.$refs.dragbox
+    // console.log(dragbox)
     // console.log(window.getComputedStyle(dragbox))
   },
 }

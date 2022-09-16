@@ -4,7 +4,7 @@
             <i :class="classArr" ref="icon"></i>
         </div>
         <span class="vs-checkbox_label">
-            <slot>复选框</slot>
+            <slot></slot>
         </span>
     </div>
 </template>
@@ -13,31 +13,77 @@
 <script>
 export default {
     name: 'VsCheckbox',
-    props: ['type', 'shape'],
+    props: {
+        type: {
+            type: String,
+            default: 'tick',
+        }, 
+        shape: {
+            type: String,
+            default: 'square',
+        }, 
+        check: {
+            type: Boolean,
+            default: true,
+        },
+        name: {
+            type: String,
+            default: 'none',
+        },
+    },
     data() {
         return {
-            checked: false,
             classArr: ['vs-cb_icon'],
         }
     }, 
+    inject: {
+        checklist: {
+            default: []
+        }, 
+        changeList: {
+            default: function(){}
+        },
+    },
     methods: {
         checkboxInit() {
 
         },
         swtSelect() { 
             if(this.checked) {
-                this.classArr.pop()
+                this.classArr = ['vs-cb_icon']
+                // this.classArr.pop()
             } else {
-                this.classArr.push('checked')
+                // this.classArr.push('checked')
+                this.classArr = ['vs-cb_icon', 'checked']
             }
+
             this.checked = !this.checked
+            console.log(this.checked, this.name)
+            if(this.changeList) {
+                this.changeList(this.name)
+            }
+            for(let v of this.checklist) {
+                console.log(v.name, v.checked)
+            }
         }
     },
     created() {
+        if(this.$parent.$options.name === 'VsCheckboxGroup') {
+            this.checked = this.checklist.filter(item => item.name===this.name)[0].checked
+        } else {
+            this.checked = this.check
+        }
         this.selectType = this.type === 'cross' ?  'anti-checked' : 'checked'
-        this.outShape = this.shape === 'square' ? '0' : '50%'
+        this.outShape = this.shape === 'square' ? '0' : 'round'
+        this.classArr = this.checked ? ['vs-cb_icon', 'checked'] : this.classArr
     },
     mounted() {
+        // if(this.$parent.$el.className.includes('vs-checkbox-group')) {
+        //     this.checked = this.checklist.filter(item => item.name===this.name)[0].checked
+        // } else {
+        //     this.checked = this.check
+        // }
+        // console.log(this.checked);
         if(this.shape) {
             this.$refs.icon.style.borderRadius = this.outShape
         }
@@ -48,6 +94,42 @@ export default {
             // this.$refs.root.setPropery('--checked-background', 'red')
             // this.$refs.root.setPropery('--checked-type', '"\\e6dc"')
             // this.$refs.root.setPropery('--checked-background', '#1989FA')
+        }
+        // console.log(this.name)
+        // console.log(this.checklist)
+    },
+    computed: {
+        // laob() {
+        //     return this.checklist.filter(item => item.name===this.name)[0].checked
+        // }
+    },
+    watch: {
+        checklist: {
+            deep: true,
+            handler(oldVal, newVal) {
+
+            // console.log(newVal)
+            // deep: true,
+            // handler(oldVal, newVal) {
+                // console.log('old: ', oldVal.filter(item => item.name===this.name)[0].checked, 'new: ', newVal.filter(item => item.name===this.name)[0].checked)
+                
+                // console.log(this.checklist.filter(item => item.name===this.name)[0].checked)
+            //     console.log(oldVal)
+                // if(this.oldVal) {
+                //     this.classArr.pop()
+                //     console.log(1)
+                // } else {
+                //     this.classArr.push('checked')
+                //     console.log(2)
+                // }
+                // this.checked = this.newVal.filter(item => item.name===this.name)[0].checked
+                if(newVal.filter(item => item.name===this.name)[0].checked) {
+                    this.classArr = ['vs-cb_icon', 'checked']
+                } else {
+                    this.classArr = ['vs-cb_icon']
+                }
+            }
+            // return 
         }
     },
 }
@@ -71,15 +153,16 @@ export default {
     line-height: 20px;
     cursor: pointer;
     line-height: 20px;
+    border-radius: var(--shape);
+    border: 1px solid gray;
+    box-sizing: border-box;
     overflow: hidden;
 }
 .vs-cb_icon {
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 1px solid gray;
-    border-radius: var(--shape);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
     box-sizing: border-box;
 }
