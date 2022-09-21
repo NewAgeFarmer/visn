@@ -3,7 +3,7 @@ import VsButton from './vs-button'
 import VsSwitch from './vs-switch'
 import VsLoading from './vs-loading'
 import VsToast from './vs-toast'
-import VsNav from './vs-nav'
+import VsTabbar from './vs-tabbar'
 import VsStepper from './vs-stepper'
 import VsSearch from './vs-search'
 import VsSwipeCell from './vs-swipe-cell'
@@ -23,7 +23,7 @@ const components = [
     VsSwitch,
     VsLoading,
     VsToast,
-    VsNav,
+    VsTabbar,
     VsStepper,
     VsSearch,
     VsSwipeCell,
@@ -59,7 +59,7 @@ export default {
   VsSwitch,
   VsLoading,
   VsToast,
-  VsNav,
+  VsTabbar,
   VsStepper,
   VsSearch,
   VsSwipeCell,

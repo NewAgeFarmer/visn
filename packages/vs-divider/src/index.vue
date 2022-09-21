@@ -1,7 +1,7 @@
 <template>
     <div class="vs-divider" ref="root">
         <div class="toast" ref="toast"> 
-            <slot>I'm a divider!</slot>
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -12,7 +12,8 @@ export default {
     name: 'VsDivider',
     props: {
         width: {
-
+            type: String,
+            default: '1px',
         }, 
         'font-size': {
             type: String,
@@ -40,9 +41,9 @@ export default {
         let scaleLeft = 5
 
         if(this.contentPosition === 'left') {
-            scaleLeft = 3
+            scaleLeft = 2
         } else if(this.contentPosition === 'right') {
-            scaleLeft = 7
+            scaleLeft = 8
         }
 
         this.$refs.root.style.setProperty('--scale-left', scaleLeft)

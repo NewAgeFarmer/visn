@@ -61,7 +61,7 @@ h1 {
     content: var(--icon);
     font-size: var(--size);
     line-height: var(--size);
-    position: absolute;
+    /* position: absolute; */
 }
 .vs-icon > span {
     display: inline-block;

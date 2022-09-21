@@ -1,6 +1,6 @@
 <template>
-    <div class="root" ref="groove">
-        <button @click="SwitchThemes">
+    <div class="vs-switch" ref="swi">
+        <button @click="SwitchThemes" ref="groove">
             <div ref="btn">
                 <slot></slot>
             </div>
@@ -11,10 +11,19 @@
 <script>
 export default {
     name: 'VsSwitch',
-//   props: {
-//     type: String,
-//   },
-    props: ['leftColor', 'rightColor', 'width', 'radius', 'bgopacity'],
+    props: {
+        leftColor: String, rightColor: String, 
+        width: String, radius: String, 
+        bgopacity: String, 
+        shadow: {
+            type: Boolean,
+            default: true,
+        }, 
+        edge: {
+            type: Boolean,
+            default: true,
+        },
+    },
     data() {
         return {
             flag: false,
@@ -36,17 +45,25 @@ export default {
     mounted() {
         // 修改一个 Dom 节点上的 CSS 变量
         if(this.leftColor) {
-            this.$refs.groove.style.setProperty("--left-color", this.leftColor)
+            this.$refs.swi.style.setProperty("--left-color", this.leftColor)
         }
         if(this.rightColor) {
-            this.$refs.groove.style.setProperty("--right-color", this.rightColor)
+            this.$refs.swi.style.setProperty("--right-color", this.rightColor)
         }
         if(this.width) {
-            this.$refs.groove.style.setProperty("--width", this.width)
-            this.$refs.groove.style.setProperty("--width", this.width)
+            this.$refs.swi.style.setProperty("--width", this.width)
+            this.$refs.swi.style.setProperty("--width", this.width)
         }
         if(this.radius) {
-            this.$refs.groove.style.setProperty("--radius", this.radius)
+            this.$refs.swi.style.setProperty("--radius", this.radius)
+        }
+        if(!this.shadow) {
+            this.$refs.groove.style.boxShadow = 'none'
+            this.$refs.btn.style.boxShadow = 'none'
+        }
+        if(!this.edge) {
+            this.$refs.groove.style.border = 'none'
+            this.$refs.swi.style.setProperty("--border-width", '0')
         }
     },
 }
@@ -54,22 +71,23 @@ export default {
 
 
 <style scoped>
-.root {
+.vs-switch {
     --width: 54px;
     --radius: 25px;
     --bg-opacity: 1;
     --left-color: rgba(41, 184, 41, 1);
     --right-color: rgba(255, 0, 0, 1);
+    --border-width: 2px;
 }
 button {
     min-width: calc(var(--radius) * 1.5);
     min-height: 25px;
     width: var(--width);
-    height: calc(var(--radius) + 4px);
+    height: calc(var(--radius) + var(--border-width) * 2);
     padding: 0;
     background-color: var(--left-color);
     border-radius: var(--radius);
-    border: 2px solid black;
+    border: var(--border-width) solid black;
     transition-duration: 0.2s;
     cursor: pointer;
     position: relative;

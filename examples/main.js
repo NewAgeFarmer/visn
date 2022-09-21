@@ -5,7 +5,9 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-import './assets/iconfont/iconfont.css'
+// import './assets/iconfont/iconfont.css'
+// import VsTabbar from '../packages/vs-tabbar'
+// VsTabbar.install(Vue)
 
 // 导入组件库
 import visn from '../packages'

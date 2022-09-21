@@ -1,12 +1,12 @@
 <template>
-    <div id="root" ref="root">
-        <div class="vs-search" ref="vs-search">
+    <div class="vs-search" ref="vs-search">
+        <div class="vs-search-container">
             <div class="vs-cell">
                 <div class="left-icon" @click="search">
                     <i class="icon"></i>
                 </div>
                 <div class="ipt">
-                    <input type="text" ref="ipt" :placeholder="holder" @input="input" :disabled="!this.able"/>
+                    <input type="text" ref="ipt" :placeholder="placeholder" @input="input" :disabled="this.disabled"/>
                 </div>
                 <div class="right-icon" @click="clear" v-show="clearIcon">
                     <i class="clear"></i>
@@ -19,38 +19,47 @@
 <script>
 export default {
     name: 'VsSearch',
-    props: ['background', 'input_align', 'placeholder', 'disabled', 'watch'],
+    props: {
+        background: {
+            type: String,
+            default: "red",
+        }, 
+        inputAlign: {
+            type: String,
+            default: "left",
+        }, 
+        placeholder: {
+            type: String,
+            default: "搜索框",
+        }, 
+        disabled: {
+            type: Boolean,
+            default: false,
+        }, 
+        watchInput: {
+            type: Boolean,
+            default: false,
+        },
+    },
     data() {
         return {
-            bgcolor: 'white',
-            align: 'left',
-            holder: '请输入搜索关键词',
-            able: true,
             clearIcon: false,
-            watchIpt: false,
         }
     },
     created() {
-        if(this.disabled!==undefined || this.disabled===true) {
-            this.able = false
-        } else if(this.disabled === false) {
-            this.able = true
-        }
-
+        console.log(this.disabled, this.inputAlign)
         this.holder = this.placeholder ? this.placeholder : this.holder
-        this.align = this.input_align ? this.input_align : this.align
-        this.bgcolor = this.background ? this.background : this.bgcolor
-        this.watchIpt = this.watch ? this.watch : this.watchIpt
-
     },
     mounted() {
-        this.$refs.root.style.backgroundColor = this.bgcolor
-        this.$refs.ipt.style.textAlign = this.align
+        this.$refs['vs-search'].style.backgroundColor = this.background
+        this.$refs.ipt.style.textAlign = this.inputAlign
     },
     methods: {
         input(e) {
-            if(this.watchIpt) {
+            if(this.disabled) return
+            if(this.watchInput) {
                 this.$emit('input', e.currentTarget.value)
+                console.log(e.currentTarget.value)
             }
             this.clearIcon = (e.currentTarget.value.length > 0)
         },
@@ -59,6 +68,7 @@ export default {
         },
         clear() {
             this.$refs.ipt.value = ''
+            this.$emit('cancel')
         }
     },
     watch: {
@@ -67,7 +77,7 @@ export default {
 </script>
 
 <style scoped>
-#root {
+.vs-search {
     background-color: white;
     padding: 10px 12px;
     height: 54px;
@@ -77,7 +87,7 @@ export default {
     --ipt-color: #f7f8fa;
     --bgcolor: #f7f8fa;
 }
-.vs-search {
+.vs-search-container {
     background-color: var(--ipt-color);
     position: absolute;
     top: 10px;
@@ -113,8 +123,10 @@ export default {
 .ipt {
     flex-grow: 1;
     overflow: hidden;
+    padding-right: 40px;
+    box-sizing: border-box;
 }
-input[type='text'] {
+.ipt > input[type='text'] {
     display: block;
     width: 100%;
     font-size: 14px;

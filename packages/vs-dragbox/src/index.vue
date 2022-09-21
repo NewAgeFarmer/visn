@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'vs-dragbox': true, 'disabled': disabled }" ref="root" @mousedown="onwebdrag" @touchstart="onmobiledrag">
+    <div :class="{ 'vs-dragbox': true, 'disabled': disabled }" ref="root" @mousedown="onwebdrag" @touchstart.stop="onmobiledrag">
         <slot></slot>
     </div>
 </template>

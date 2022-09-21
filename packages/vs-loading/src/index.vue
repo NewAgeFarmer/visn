@@ -15,16 +15,29 @@ export default {
             linecolor: '',
         }
     },
-    props: ['size', 'color', 'cycle'],
+    props: ['size', 'color', 'speed', ''],
     methods: {
     },
     mounted() {
         this.linecolor = this.color ? this.color : 'skyblue'
         this.radius = this.size ? this.size : '16px'
-        let time = this.cycle ? this.cycle : '0.5s'
+        switch(this.speed) {
+            case 'fast':
+                this.time = '0.4s'
+                break
+            case 'mid':
+                this.time = '1s'
+                break
+            case 'slow':
+                this.time = '2s'
+                break
+        }
+        // console.log(this.speed)
+        let time = this.speed ? this.speed : '0.5s'
 
         this.$refs.root.style.setProperty('--color', this.linecolor)
         this.$refs.root.style.setProperty('--size', this.radius)
+        this.$refs.root.style.setProperty('--time', this.time)
         document.querySelector('.loading').style.animationDuration = time
     },
 }
@@ -35,6 +48,7 @@ export default {
 .root {
     --size: 50px;
     --color: skyblue;
+    --time: 0.5s;
 }
 .loading {
     width: var(--size);
@@ -42,7 +56,7 @@ export default {
     border: calc(var(--size) / 4) solid var(--color);
     border-top-color: rgba(67, 67, 177, 0);
     border-radius: 50%;
-    animation: constant 0.5s infinite linear;
+    animation: constant var(--time) infinite linear;
 }
 @keyframes constant {
     25% {transform: rotate(90deg);}

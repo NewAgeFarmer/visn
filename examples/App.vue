@@ -1,7 +1,16 @@
 <template>
     <div>
-        <!-- <vs-divider dashed width="4px" font-size="40px" color="darkred"></vs-divider> -->
+        <!-- <vs-divider dashed width="1px" font-size="16px" darkred="false"></vs-divider> -->
         
+        <!-- <vs-dragbox width="200px" height="160px">
+        <div>
+          <div><span>账号</span><input type="text" style="width: 80px;"></div>
+          <div><span>密码</span><input type="text" style="width: 80px;"></div> 
+          <button style="width: 80px;">登录</button>
+          <button style="width: 80px;">注册</button>  
+        </div>   
+      </vs-dragbox> -->
+
         <!-- <div class="progress">
             <div class="progress-bar"></div>
             <vs-dragbox ref="dragbox" shape="circle" maxX='200' direction="x" disabled>
@@ -10,18 +19,21 @@
         </div> -->
         <!-- <vs-icon icon='上传'></vs-icon> -->
 
-        <vs-checkbox-group type="tick" shape="round" direction="horizontal" :checked-list="checkedList">
+        <!-- <vs-checkbox-group type="tick" shape="round" direction="horizontal" :checked-list="checkedList">
             <vs-checkbox v-for="item in checkedList" :key="item.id" :name="item.name">{{item.name}}</vs-checkbox>
-        </vs-checkbox-group>
+        </vs-checkbox-group> -->
 
         <!-- <vs-swipe-cell></vs-swipe-cell> -->
 
         <!-- <vs-dropdown-menu></vs-dropdown-menu> -->
         <!-- <vs-dropdown-item></vs-dropdown-item> -->
 
-        <!-- <vs-search></vs-search> -->
-        <!-- <vs-stepper></vs-stepper> -->
-        <!-- <vs-nav></vs-nav> -->
+        <!-- <vs-search input-align="right" @input.native="ipt"></vs-search> -->
+        <vs-stepper step="30" min="4" initial="8.8"></vs-stepper>
+        <vs-loading speed="mid"></vs-loading>
+        <vs-switch :edge="false" left-color="black" right-color="gray"></vs-switch>
+        <!-- <vs-switch :shadow="false"></vs-switch> -->
+        <!-- <vs-tabbar icon></vs-tabbar> -->
         <!-- <vs-toast></vs-toast> -->
         <!-- <vs-button>
             <vs-loading :size="'16px'"></vs-loading>
@@ -61,7 +73,12 @@ export default {
 
   },
   methods: {
-
+    ipt() {
+        console.log(123);
+    },
+    getValue(e) {
+        console.log(e.target.value)
+    },
   },
   created() {
   },
